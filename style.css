@@ -109,16 +109,6 @@ body {
   padding: 12px 6px 8px 6px;
 }
 
-.below-top-container-right .inner-box:empty::before {
-  display: block;
-  color: #888;
-  text-align: center;
-  width: 100%;
-  font-size: 1.1em;
-  font-style: italic;
-  margin-top: 30px;
-}
-
 .below-top-row-and-space {
   display: flex;
   flex-direction: column;
@@ -153,21 +143,24 @@ body {
 }
 
 .below-top-container2 {
-  width: 400px;
-  height: 300px;
+  width: 380px;
+  height: 185px;
   background-color: #E5D9C1;
   border: 1px solid #000;
   border-radius: 12px;
   padding-left: 8px;
   box-sizing: border-box;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   display: flex;
   align-items: center;
+  margin-left: 640px;
+  position: relative;
+  top: -180px;
 }
 
 .your-space-box {
   width: 200px;
-  height: 200px;
+  height: 180px;
   background-color: #E5D9C1;
   border: 1px solid #000;
   border-radius: 12px;
@@ -230,7 +223,6 @@ body {
   min-height: 24px;
   font-style: italic;
   font-weight: 300;
-  margin-top: 30px;
 }
 
 .inspiration-text {

@@ -112,11 +112,11 @@ window.renderSavedToDoLists = async function() {
     const lists = await getToDoListsFromFirestore();
     saved = lists.map(l => l.tasks).flat();
   } catch (e) {
-    container.innerHTML = '<div style="color:#888;text-align:center;width:100%;font-size:1.1em;font-style:italic;margin-top:30px;">no tasks added yet</div>';
+    container.innerHTML = '<div style="color:#b00;text-align:center;width:100%;">Failed to load tasks</div>';
     return;
   }
   if (saved.length === 0) {
-    container.innerHTML = '<div style="color:#888;text-align:center;width:100%;font-size:1.1em;font-style:italic;margin-top:30px;">no tasks added yet</div>';
+    container.innerHTML = '<div style="color:#888;text-align:center;width:100%;">No tasks to complete</div>';
     return;
   }
   // Create a single box for all tasks
@@ -160,4 +160,10 @@ window.renderSavedToDoLists = async function() {
   });
   container.appendChild(listDiv);
 };
-window.addEventListener('DOMContentLoaded', window.renderSavedToDoLists);
+
+// Only render to-do lists after Firebase Auth is ready and user is logged in
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    window.renderSavedToDoLists();
+  }
+});
